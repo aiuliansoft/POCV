@@ -16,6 +16,10 @@ public interface IOtpRepository
     /// </summary>
     Task<Otp?> GetAsync(Guid userId, int code);
     /// <summary>
+    /// Invalidates the OTP
+    /// </summary>
+    Task InvalidateAsync(Guid userId, int code);
+    /// <summary>
     /// Cleans up all the expired tokens
     /// </summary>
     Task CleanUpAsync();

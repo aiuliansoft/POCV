@@ -4,10 +4,10 @@ namespace Models
 {
     public class Otp
     {
-        public Guid UserId { get; init; }
-        public int Code { get; init; }
-        public DateTime Timestamp { get; init; }
+        public Guid UserId { get; set; }
+        public int Code { get; set; }
+        public DateTime Timestamp { get; set; }
         [NotMapped]
-        public int Validity { get; init; }
+        public int Validity { get; set; }
     }
 }

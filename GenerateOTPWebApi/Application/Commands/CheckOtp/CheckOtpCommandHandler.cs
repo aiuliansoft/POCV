@@ -18,6 +18,10 @@ public class CheckOtpCommandHandler : ICommandHandler<CheckOtpCommand, bool>
     {
         Otp? otp = await _otpRepository.GetAsync(command.UserId, command.Code);
 
-        return otp != null && otp.Timestamp.AddSeconds(_otpConfiguration.Validity) >= DateTime.UtcNow;
+        var isValid = otp != null && otp.Timestamp.AddSeconds(_otpConfiguration.Validity) >= DateTime.UtcNow;
+
+        await _otpRepository.InvalidateAsync(command.UserId, command.Code);
+
+        return isValid;
     }
 }
