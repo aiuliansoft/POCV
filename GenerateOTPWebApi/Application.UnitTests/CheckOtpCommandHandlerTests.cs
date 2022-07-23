@@ -77,6 +77,9 @@ public class CheckOtpCommandHandlerTests
         Assert.IsTrue(result);
 
         _otpRepositoryMock.Verify();
-        _otpRepositoryMock.Verify(x => x.InvalidateAsync(otp.UserId, otp.Code), Times.Once);
+        _otpRepositoryMock.Verify(x => x.UpdateAsync(
+            It.Is<Otp>(
+                o => o.UserId == otp.UserId &&
+                     o.Code == command.Code)), Times.Once);
     }
 }

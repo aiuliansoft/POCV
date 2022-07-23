@@ -9,5 +9,6 @@ internal class OtpEntityConfiguration : IEntityTypeConfiguration<Otp>
     public void Configure(EntityTypeBuilder<Otp> builder)
     {
         builder.Property<long>("Id");
+        builder.Property<DateTime>("CreationDateTime").HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnAdd();
     }
 }

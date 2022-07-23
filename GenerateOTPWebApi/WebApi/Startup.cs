@@ -57,7 +57,5 @@ public class Startup
         {
             c.SwaggerEndpoint("v1/swagger.json", "OTP Api");
         });
-
-        
     }
 }
