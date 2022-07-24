@@ -1,0 +1,9 @@
+<div class="input-group mb-3">
+  <button type="button" class="btn btn-primary" (click)="checkOTP()">
+    Check OTP
+  </button>
+  <input type="text" class="form-control" [(ngModel)]="code" />
+  <div class="input-group-append">
+    <span class="input-group-text" id="basic-addon2">{{ otpStatus }}</span>
+  </div>
+</div>

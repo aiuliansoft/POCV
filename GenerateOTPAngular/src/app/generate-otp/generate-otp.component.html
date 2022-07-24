@@ -1,0 +1,16 @@
+<div class="input-group mb-3">
+  <button
+    type="button"
+    [disabled]="countdownTime > 0"
+    class="btn btn-primary"
+    (click)="generateOTP()"
+  >
+    Generate OTP
+  </button>
+  <input type="text" class="form-control" value="{{ code }}" />
+  <div class="input-group-append">
+    <span class="input-group-text" id="basic-addon2"
+      >{{ countdownTime }} seconds</span
+    >
+  </div>
+</div>
